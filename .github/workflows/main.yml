@@ -44,3 +44,9 @@ jobs:
 
       - name: Start nopCommerce application
         run: python project-3-template/nop_commerce/nop_commerce.py
+      - name: Debugging
+        run: |
+          ls -l ./nop_commerce/
+          ls -l ./nop_commerce/docker-compose.yml
+          python project-3-template/nop_commerce/nop_commerce.py
+  
