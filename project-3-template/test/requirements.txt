@@ -1,0 +1,7 @@
+munch
+sure
+selenium
+webdriver-manager
+pytest
+assertpy
+assert_that
