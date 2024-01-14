@@ -29,6 +29,16 @@ jobs:
       - name: Start nopCommerce application
         run: python nop_commerce/nop_commerce.py
 
+      - name: Run the tests
+        run:
+          python -m pytest --junit-xml=report.xml
+
+      - name: Publish Test Report
+        uses: mikepenz/action-junit-report@v3
+        if: always() # always run even if the previous step fails
+        with:
+          report_paths: '**/*.xml'
+
 
      
 
