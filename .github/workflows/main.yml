@@ -24,14 +24,7 @@ jobs:
             -p 4444:4444 \
             -p 5900:5900 \
             --shm-size="2g" \
-            selenium/standalone-chrome:4.2.1-20220531
-
-      - name: Debugging
-        run: |
-          ls -l ./nop_commerce/
-          ls -l ./nop_commerce/docker-compose.yml
-          python project-3-template/nop_commerce/nop_commerce.py
-                  
+            selenium/standalone-chrome:4.2.1-20220531        
 
       - name: Start nopCommerce application
         run: python nop_commerce/nop_commerce.py
