@@ -34,7 +34,7 @@ jobs:
                   
 
       - name: Start nopCommerce application
-        run: python project-3-template/nop_commerce/nop_commerce.py
+        run: python nop_commerce/nop_commerce.py
 
 
      
