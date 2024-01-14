@@ -1,4 +1,4 @@
-ame: nopCommerce automation
+name: nopCommerce automation
 
 on:
   push:
