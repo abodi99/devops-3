@@ -1,0 +1,46 @@
+ame: nopCommerce automation
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  install_python_packages:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install Python packages
+        run: pip install -r requirements.txt
+
+  start_selenium_docker_node:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Build and start Selenium Docker container
+        run: |
+          docker run -d \
+            --add-host host.docker.internal:host-gateway \
+            -p 4444:4444 \
+            -p 5900:5900 \
+            --shm-size="2g" \
+            selenium/standalone-chrome:4.2.1-20220531
+
+  start_nopCommerce_application:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Start nopCommerce application
+        run: python nop_commerce/nop_commerce.py
